@@ -2,9 +2,9 @@ spring:
   application:
     name: shop-dev-java
   datasource:
-    url: jdbc:mysql://localhost:33336/shopdevjava
+    url: jdbc:mysql://localhost:3306/shopdevjava
     username: root
-    password: password
+    password: 1234567890
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     database: mysql

@@ -13,7 +13,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicUpdate
 public class UserEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(columnDefinition = "varchar(255) comment 'user name'", nullable = false)
