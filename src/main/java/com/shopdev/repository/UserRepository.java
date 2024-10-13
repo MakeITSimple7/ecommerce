@@ -33,13 +33,13 @@ public interface UserRepository extends JpaRepository<UserEntity, Long>, JpaSpec
     List<UserEntity> findByIdLessThan(Long id);
 
     // RAW JPQL
-    @Query("SELECT u FROM UserEntity WHERE u.id = (SELECT MAX(p.id) FROM UserEntity p)")
+    @Query("SELECT u FROM UserEntity u WHERE u.id = (SELECT MAX(p.id) FROM UserEntity p)")
     UserEntity findMaxIdUser();
 
-    @Query("SELECT U FROM UserEntity u WHERE u.userName = ?1 AND u.userEmail =?2")
+    @Query("SELECT u FROM UserEntity u WHERE u.userName = ?1 AND u.userEmail =?2")
     List<UserEntity> getUserEntityBy(String userName, String userEmail);
 
-    @Query("SELECT U FROM UserEntity u WHERE u.userName = :userName AND u.userEmail = :userEmail")
+    @Query("SELECT u FROM UserEntity u WHERE u.userName = :userName AND u.userEmail = :userEmail")
     List<UserEntity> getUserEntityByTwo(@Param("userName") String userName, @Param("userEmail") String userEmail);
 
     @Modifying
