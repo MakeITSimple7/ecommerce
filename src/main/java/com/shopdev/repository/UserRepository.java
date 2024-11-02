@@ -2,6 +2,8 @@ package com.shopdev.repository;
 
 import com.shopdev.entity.user.UserEntity;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
@@ -11,6 +13,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long>, JpaSpecificationExecutor<UserEntity> {
+    // use pageable
+    Page<UserEntity> findByUserName(String name, Pageable pageable);
     // find userName and userEmail
     UserEntity findByUserNameAndUserEmail(String userName, String userEmail);
 
